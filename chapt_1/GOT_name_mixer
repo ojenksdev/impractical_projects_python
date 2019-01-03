@@ -1,0 +1,50 @@
+# Game of Thrones Name Jumble. --- I created a name jumble game using
+# game of Thrones characters. The logic is pretty simple, just running through two lists
+# of first and last names. Then formatting them and printing the name.
+# after, we compare that name to the tuple of real character names. If it matches, another message is thrown.
+# Try it out!
+
+import sys
+import random
+
+
+print("Welcome to the Game of Thrones, Name Mixer.")
+
+print("Lets mix some families up shall we? :")
+
+first = ["Eddard 'Ned'", 'Robert', 'Jaime', 'Catelyn', 'Cersei', 'Daenerys',
+         'Jorah', 'Viserys', 'Jon', 'Sansa', 'Arya', 'Robb', 'Theon', 'Bran',
+         'Joffrey', "Sandor 'The Hound'", 'Tyrion', 'Khal', "Petyr 'Littlefinger'", 'Davos',
+         'Samwell', 'Stannis', 'Melisandre', 'Jeor', 'Bronn', 'Varys', 'Shae',
+         'Margaery', 'Tywin', 'Talisa', 'Ygritte', 'Gendry', 'Tormund', 'Brienne',
+         'Ramsay', 'Gilly', 'Daario', 'Missandei', 'Ellaria', 'Tommen', 'Jaqen',
+         'Roose']
+
+last = ['Bolton', "H'ghar", 'Baratheon', 'Sand', 'Naharis', 'of Tarth', 'Giantsbane',
+        'Maegyr', 'Lannister', 'Tyrell', 'Mormont', 'Tarly', 'Seaworth', 'Baelish',
+        'Drogo', 'Clegane', 'Stark', 'Greyjoy', 'Snow', 'Targaryen']
+
+real_character_names = ("Eddard 'Ned' Stark", "Robert Baratheon", "Jamie Lannister", "Catelyn Stark",
+                        "Cersei Lannister", "Daenerys Targaryen", "Jorah Mormont", "Viserys Targaryen",
+                        "Jon Snow", "Sansa Stark", "Arya Stark", "Robb Stark", "Theon Greyjoy",
+                        "Bran Stark", "Joffrey Baratheon", "Sandor 'The Hound' Clegane", "Tyrion Lannister",
+                        "Khal Drogo", "Petyr 'Littlefinger' Baelish", "Davos Seaworth", "Samwell Tarly",
+                        "Stannis Baratheon", "Jeor Mormont", "Margaery Tyrell", "Tywin Lannister", "Talisa Maegyr",
+                        "Tormund Giantsbane", "Brienne of Tarth", "Ramsay Bolton", "Daario Naharis", "Ellaria Sand",
+                        "Tommen Baratheon", "Jaqen H'ghar", "Roose Bolton")
+
+
+while True:
+    first_name = random.choice(first)
+    last_name = random.choice(last)
+    full_name = "{} {}".format(first_name, last_name)
+
+    print(full_name.format(file=sys.stderr))  # used sys.stderr to change the created names to the color red.
+
+    if full_name in real_character_names:
+        print("Wow, guess it wasn't that random after all!")
+
+    try_again = input("\nTry again? (Press Enter or press n to quit.): ")
+    if try_again.lower() == 'n':
+        print('Thanks for playing!')
+        break
